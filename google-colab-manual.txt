@@ -1,0 +1,54 @@
+
+>> google drive 上にrepository のクローンを作る
+ 
+10. github に移動する
+12. google colab. で実行したいコードを実装した"repository"に移動する
+14. URL を取得する
+eg. https://github.com/allnightlight/MySnippets.git
+16. google の mydrive に移動する。18. 以下のコマンドを実行する(*). 途中で認証が必要になったら、誘導に従う
+
+"""from google.colab import drivedrive.mount('/content/drive')
+%cd /content/drive/My Drive/
+# Specify a target repository URL:
+!git clone https://github.com/allnightlight/MySnippets.git
+"""
+
+>> note を実行する
+
+20. drive 上の実行したい note を開く
+eg. フォルダ: /content/drive/MySnippets に移動して、timeit_snippet.ipynb を開く
+
+22. ノートに以下のコマンドを入力する
+(*). 途中で認証が必要になったら、誘導に従う
+
+"""
+from google.colab import drive
+drive.mount('/content/drive')
+# Choose an appropriate folder name:
+%cd /content/drive/MyDrive/MySnippets
+"""
+
+24. ノートを実行する
+
+>> pull する
+
+30. google drive 上の作業用のフォルダに移動する
+
+32. ノートを新たに作成する
+
+34. 以下のコマンドを実行する
+
+"""
+from google.colab import drive
+drive.mount('/content/drive')
+# Choose an appropriate folder name:
+%cd /content/drive/MyDrive/MySnippets
+!git config --global user.name "your name"
+!git config --global user.email "your.address@gmail.com"
+!git stash 
+!git pull
+!git stash apply stash@{0}
+!git stash drop stash@{0}
+"""
+
+36. 20~の手順を再度実行する
